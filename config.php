@@ -254,6 +254,9 @@ $icon_categories = array(
  */
 define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 
+// For demo site only
+define( 'IPTDEMO', true );
+
 function get_header() {
 	require_once( ABSPATH . 'includes/header.php' );
 }

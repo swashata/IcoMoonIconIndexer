@@ -33,7 +33,7 @@ get_header();
 					}).trigger('change');
 				});
 			</script>
-			<p>In a nut shell, it helps you create something like this: <input type="text" name="fip_1" id="fip_1" value="" /> or this:
+			<p>In a nutshell, it helps you create something like this: <input type="text" name="fip_1" id="fip_1" value="" /> or this:
 			<select class="form-control" style="display: inline-block; width: 200px;" name="select_1" id="select_1">
 				<option value="" selected="selected">--please select--</option>
 				<?php echo imii_generate_select_options( $icomoon_icons, 'class' ); ?>
@@ -117,6 +117,12 @@ require_once ABSPATH . &#039;functions.php&#039;;
 		<h2 id="getting_started"><a class="pull-right" href="#main"><span class="glyphicon glyphicon-chevron-up"></span></a><span class="glyphicon glyphicon-hand-right"></span> Getting Started</h2>
 		<hr />
 		<p>We are assuming you know a little PHP and some JavaScript. You have some place to host this script, or atleast locally (using <a href="http://www.wampserver.com/en/">WAMP</a> or <a href="http://www.mamp.info/en/">MAMP</a> and hey if you are using linux, I don't need to say much).</p>
+		<p>Before you proceed make sure you have the following requirements:</p>
+		<ul>
+			<li>PHP Version 5.3+. Greater the better.</li>
+			<li>Rather some large value for <code>max_input_vars</code> (10000 would do) <code>post_max_size</code> (128MB).</li>
+			<li>A browser that can handle the app. Like Google Chrome or Mozilla Firefox.</li>
+		</ul>
 		<h3><span class="glyphicon glyphicon-check"></span> Download a font icon set from IcoMoon</h3>
 		<hr />
 		<ul>

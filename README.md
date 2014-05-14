@@ -57,6 +57,12 @@ Additional Features
 
 For more information and documentation make sure to see the [Online Project Demo](http://projects.ipanelthemes.com/IcoMoonIconIndexer/)
 
+Requirements
+------------
+* PHP Version 5.3+. Greater the better.
+* Rather some large value for `max_input_vars` (10000 would do) `post_max_size` (128MB).
+* A browser that can handle the app. Like Google Chrome or Mozilla Firefox.
+
 Credits
 -------
 * [IcoMoon App](http://icomoon.io/): Without which nothing would've been possible.

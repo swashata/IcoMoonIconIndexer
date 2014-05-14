@@ -7,6 +7,17 @@ if ( $_SERVER['REQUEST_METHOD'] != 'POST' ) {
 // Include the config file
 require_once( dirname( __FILE__ ) . '/config.php' );
 
+// Kill if this is the demo site
+if ( defined( 'IPTDEMO' ) && true == IPTDEMO ) {
+	?>
+<div class="alert alert-danger">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>Demo Only</strong> Saving modifications has been disabled in this demo. Please download and host it yourself.
+</div>
+	<?php
+	die();
+}
+
 // Get the JSON file
 $icm_json = json_decode( file_get_contents( ABSPATH . ICMPATH . 'selection.json' ), true );
 
