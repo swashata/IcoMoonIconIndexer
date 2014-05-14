@@ -2,26 +2,81 @@
 // Include the config file
 require_once( dirname( __FILE__ ) . '/config.php' );
 
+// First require the iconindexed.php to see if a backup is present
+if ( file_exists( ABSPATH . 'iconindexed.php' ) ) {
+	require_once ABSPATH . 'iconindexed.php';
+}
+
+// Now get the functions
+require_once ABSPATH . 'functions.php';
+
 // Include the header file
 get_header();
 ?>
-
 	<div class="jumbotron">
 		<div class="container">
 			<h1>IcoMoonIconIndexer <small>v1.0.0</small></h1>
 			<p>This script helps index and categorize icons generated from <a href="http://icomoon.io">IcoMoon Apps</a> and create <code>PHP array</code>, <code>JavaScript Object|Array</code> variables and/or <code>SELECT</code> HTML for your use.</p>
-			<p>In a nut shell, it helps you create something like this: <input data-bv-notempty="true" data-bv-notempty-message="You must pick a font" type="text" name="fip_1" id="fip_1" value="" /> or this:
-			<select data-bv-notempty="true" class="form-control" style="display: inline-block; " data-bv-notempty-message="You must pick a font" name="select_3" id="select_3" class="form-control by_class">
+			<?php if ( isset( $icomoon_icons ) ) : ?>
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					var source = <?php echo imii_generate_fip_source_json( $icomoon_icons, 'class' ); ?>;
+					var searchSource = <?php echo imii_generate_fip_search_json( $icomoon_icons ); ?>;
+					$('#fip_1').fontIconPicker({
+						source: source,
+						searchSource: searchSource,
+						theme: 'fip-bootstrap'
+					});
+					$('#select_1').on('change keyup', function() {
+						var val = $(this).val();
+						$(this).next('.text-success').html('<i class="' + val + '"></i>');
+					}).trigger('change');
+				});
+			</script>
+			<p>In a nut shell, it helps you create something like this: <input type="text" name="fip_1" id="fip_1" value="" /> or this:
+			<select class="form-control" style="display: inline-block; width: 200px;" name="select_1" id="select_1">
 				<option value="" selected="selected">--please select--</option>
-				<?php echo imii_generate_select_options( $icomoon_icons, 'unicode' ); ?>
-			</select> by just these:</p>
+				<?php echo imii_generate_select_options( $icomoon_icons, 'class' ); ?>
+			</select> <span class="text-success"></span> by just these:</p>
+			<?php else : ?>
+			<img src="images/output.png" alt="Output" style="display: block; margin: 10px auto; max-width: 100%; height: auto; width: 917px;" />
+			<p>Create fontIconPicker or create <code>SELECT</code> elements with just this bit of code:</p>
+			<?php endif; ?>
 			<pre class="brush: php">
+&lt;?php
+// First require the iconindexed.php to see if a backup is present
+if ( file_exists( ABSPATH . &#039;iconindexed.php&#039; ) ) {
+	require_once ABSPATH . &#039;iconindexed.php&#039;;
+}
 
+// Now get the functions
+require_once ABSPATH . &#039;functions.php&#039;;
+?&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	jQuery(document).ready(function($) {
+		var source = &lt;?php echo imii_generate_fip_source_json( $icomoon_icons, &#039;class&#039; ); ?&gt;;
+		var searchSource = &lt;?php echo imii_generate_fip_search_json( $icomoon_icons ); ?&gt;;
+		$(&#039;#fip_1&#039;).fontIconPicker({
+			source: source,
+			searchSource: searchSource,
+			theme: &#039;fip-bootstrap&#039;
+		});
+		$(&#039;#select_1&#039;).on(&#039;change keyup&#039;, function() {
+			var val = $(this).val();
+			$(this).next(&#039;.text-success&#039;).html(&#039;&lt;i class=&quot;&#039; + val + &#039;&quot;&gt;&lt;/i&gt;&#039;);
+		}).trigger(&#039;change&#039;);
+	});
+&lt;/script&gt;
+&lt;input type=&quot;text&quot; name=&quot;fip_1&quot; id=&quot;fip_1&quot; value=&quot;&quot; /&gt;
+&lt;select class=&quot;form-control&quot; style=&quot;display: inline-block; width: 200px;&quot; name=&quot;select_1&quot; id=&quot;select_1&quot;&gt;
+	&lt;option value=&quot;&quot; selected=&quot;selected&quot;&gt;--please select--&lt;/option&gt;
+	&lt;?php echo imii_generate_select_options( $icomoon_icons, &#039;class&#039; ); ?&gt;
+&lt;/select&gt; &lt;span class=&quot;text-success&quot;&gt;&lt;/span&gt;
 			</pre>
-			<p>
-				<a href="auto-generate.php" class="btn btn-primary btn-lg">Auto Generate Index</a>
-				<a href="test-icons.php" class="btn btn-primary btn-lg">Test Indexed Icons</a>
-				<a href="codes.php" class="btn btn-primary btn-lg">Get Sample Codes</a>
+			<p class="margin_top">
+				<a href="#getting_started" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-hand-right"></span> Getting Started</a>
+				<a href="#editing_configuration_file" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-cog"></span> Editing Configuration File</a>
+				<a href="#functions_and_apis" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-book"></span> Functions and APIs</a>
 			</p>
 		</div>
 	</div>
@@ -30,7 +85,7 @@ get_header();
 		<h2 id="what_it_does"><a class="pull-right" href="#main"><span class="glyphicon glyphicon-chevron-up"></span></a><span class="glyphicon glyphicon-ok"></span> What it does</h2>
 		<hr />
 		<p>
-			What the script basically do is, parse the <code>selection.json</code> file from the icon package downloaded from <a href="http://icomoon.io">IcoMoon App</a> and categorizes icons (by tags) and stores them in a <code>PHP Array</code>.
+			What the script basically does is, parse the <code>selection.json</code> file from the icon package downloaded from <a href="http://icomoon.io">IcoMoon App</a> and categorizes icons (by tags) and stores them in a <code>PHP Array</code>.
 		</p>
 		<p>
 			This helps you in several ways:
@@ -43,7 +98,7 @@ get_header();
 			<li>It does all the job for writing PHP array, validating etc... So you have to do a very little work.</li>
 		</ul>
 		<hr />
-		<h2 id="what_it_does_not"><span class="glyphicon glyphicon-remove"></span> What it does not</h2>
+		<h2 id="what_it_does_not"><a class="pull-right" href="#main"><span class="glyphicon glyphicon-chevron-up"></span></a><span class="glyphicon glyphicon-remove"></span> What it does not</h2>
 		<hr />
 		<p>Sadly this is a script and it has it's limitations.</p>
 		<ul>
@@ -52,14 +107,14 @@ get_header();
 			<li>It will not get you a beer.</li>
 		</ul>
 		<hr />
-		<h2 id="additional_features"><span class="glyphicon glyphicon-plus"></span> Additional Features</h2>
+		<h2 id="additional_features"><a class="pull-right" href="#main"><span class="glyphicon glyphicon-chevron-up"></span></a><span class="glyphicon glyphicon-plus"></span> Additional Features</h2>
 		<hr />
 		<ul>
 			<li>Along with indexing icons, it indexes images too. So just download the image set for any icon library and this app will generate image codes for you.</li>
 			<li>Comes with predefined functions (see below) with which you can do quite a lot.</li>
 		</ul>
 		<hr />
-		<h2 id="getting_started"><span class="glyphicon glyphicon-hand-right"></span> Getting Started</h2>
+		<h2 id="getting_started"><a class="pull-right" href="#main"><span class="glyphicon glyphicon-chevron-up"></span></a><span class="glyphicon glyphicon-hand-right"></span> Getting Started</h2>
 		<hr />
 		<p>We are assuming you know a little PHP and some JavaScript. You have some place to host this script, or atleast locally (using <a href="http://www.wampserver.com/en/">WAMP</a> or <a href="http://www.mamp.info/en/">MAMP</a> and hey if you are using linux, I don't need to say much).</p>
 		<h3><span class="glyphicon glyphicon-check"></span> Download a font icon set from IcoMoon</h3>

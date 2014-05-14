@@ -34,6 +34,9 @@
 .list-group-item.active code {
 	text-shadow: none;
 }
+.margin_top {
+	margin-top: 50px;
+}
 
 /** Make SyntaxHighlighter play nice with bootstrap */
 .syntaxhighlighter,

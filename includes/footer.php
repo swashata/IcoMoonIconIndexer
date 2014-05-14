@@ -12,6 +12,7 @@
 							<li><a href="http://getbootstrap.com">Bootstrap</a>: For generating this nice looking template.</li>
 							<li><a href="http://bootstrapvalidator.com/">BootstrapValidator</a>: For validating the form on examples.</li>
 							<li><a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a>: For showing the example source code.</li>
+							<li><a href="https://github.com/swashata/IcoMoonIconIndexer">GitHub</a>: For hosting the project with <span class="glyphicon glyphicon-heart text-danger"></span>.</li>
 						</ul>
 					</div>
 					<div class="col-md-7">
@@ -20,7 +21,7 @@
 						<p>This script is neither affiliated with nor does it endorse <a href="http://icomoon.io/">IcoMoon App</a>. All this script does
 						is automatically index and categorize icons created by the GREAT app.</p>
 						<p><a href="http://icomoon.io/">IcoMoon App</a> is built and maintained by <a href="https://twitter.com/keyamoon">@Keyamoon</a>.</p>
-						<p>This script was born from the necessity of indexing thousands of icons. Contributions are always welcome.</p>
+						<p>This script was born from the necessity of indexing thousands of icons. Contributions are always welcome. Please fork @github</p>
 					</div>
 				</div>
 			</div>

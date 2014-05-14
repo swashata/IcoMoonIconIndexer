@@ -77,6 +77,7 @@ if ( ! isset( $icomoon_icons ) ) {
 	// Error has occured
 }
 			</pre>
+			<p>Now include all <code>script</code> and <code>stylesheet</code> from fontIconPicker into the head of your html file.</p>
 		</div>
 	</div>
 
