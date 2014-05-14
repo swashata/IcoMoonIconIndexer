@@ -3,7 +3,7 @@ IcoMoonIconIndexer
 
 This script helps index and categorize icons generated from IcoMoon Apps and create `PHP array`, `JavaScript Object|Array` variables and/or `SELECT HTML` for your use.
 
-![Script Output IcoMoonIconIndexer](/images/output-github.png)
+![Script Output IcoMoonIconIndexer](https://raw.githubusercontent.com/swashata/IcoMoonIconIndexer/5390f804c848bd39971e19293b7fd650b477b794/images/output-github.png)
 
 Populate fontIconPicker or create SELECT elements with just this bit of code:
 
