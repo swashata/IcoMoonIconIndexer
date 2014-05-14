@@ -17,6 +17,7 @@ define( 'HTML_ATTR', 'data-icomoon' );
  * Icomoon style.css and selection.json path
  *
  * Must have a trailing slash
+ * Relative to the root directory of this file
  */
 define( 'ICMPATH', 'icomoon.fonts/' );
 
@@ -24,13 +25,14 @@ define( 'ICMPATH', 'icomoon.fonts/' );
  * Icomoon image path
  *
  * Must have a trailing slash
+ * Relative to the root directory of this file
  */
 define( 'ICMIMG', 'icomoon.png/' );
 
 /**
  * Icon Categories and their tag
  *
- * It is an array of array, where each nested arrays has 3 properties
+ * It is an array of array, where each nested array has 3 properties
  * @param string id The ID of this Category
  * @param string label The label of this Category
  * @param array tags The tags to search for when looking
@@ -204,15 +206,6 @@ $icon_categories = array(
 		'tags' => array(
 			'leaf', 'sun', 'sunrise', 'windy', 'snow', 'snowflake', 'cloudy', 'cloud', 'weather', 'moon',
 			'wind', 'rain', 'rainy', 'lightning', 'snowy', 'fire',
-		),
-	),
-	//Medical
-	array(
-		'id' => 'medical',
-		'label' => 'Medical Icons',
-		'tags' => array(
-			'ambulance', 'h square', 'hospital', 'medkit',
-			'plus square', 'stethoscope', 'user md', 'wheelchair',
 		),
 	),
 	//Like Dislike

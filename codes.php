@@ -39,7 +39,6 @@ get_header();
 				iconContainer.html('<i class="' + val + '"></i>' );
 			}
 		}).find('select, input').trigger('change');
-		SyntaxHighlighter.all();
 	});
 </script>
 <div class="container">

@@ -4,9 +4,8 @@
  * Made by Swashata <swashata@intechgrity.com>
  * @link https://github.com/swashata/IcoMoonIconIndexer
  */
-
-#main .jumbotron {
-	margin-top: -20px;
+#main {
+	margin: 50px 0 0 0;
 }
 #site-footer {
 	margin: 50px 0 0 0;
@@ -62,4 +61,11 @@ body .syntaxhighlighter table td,
 body .syntaxhighlighter table code,
 body .syntaxhighlighter table div {
 	font-size: 16px !important;
+}
+.syntaxhighlighter {
+	max-height: 300px;
+}
+
+table .syntaxhighlighter {
+	max-width: 300px;
 }

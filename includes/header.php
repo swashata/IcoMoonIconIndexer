@@ -32,11 +32,12 @@
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {
 			$('.bstooltip').tooltip();
+			SyntaxHighlighter.all();
 		});
 	</script>
 </head>
 <body>
-	<nav class="navbar navbar-default" role="navigation">
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
 			<div class="navbar-header">
@@ -56,6 +57,9 @@
 					<li<?php if ( basename( $_SERVER['SCRIPT_FILENAME'] ) == 'auto-generate.php' ) echo ' class="active"'; ?>><a href="auto-generate.php">Auto Generate</a></li>
 					<li<?php if ( basename( $_SERVER['SCRIPT_FILENAME'] ) == 'test-icons.php' ) echo ' class="active"'; ?>><a href="test-icons.php">Test Indexed Icons</a></li>
 					<li<?php if ( basename( $_SERVER['SCRIPT_FILENAME'] ) == 'codes.php' ) echo ' class="active"'; ?>><a href="codes.php">Icon Related Codes</a></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="https://github.com/swashata/IcoMoonIconIndexer">GitHub Project Page</a></li>
 				</ul>
 			</div><!-- /.navbar-collapse -->
 		</div>
