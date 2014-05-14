@@ -8,15 +8,26 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
 	<link rel="stylesheet" type="text/css" href="style.css" />
-	<link rel="stylesheet" type="text/css" href="jquery.fonticonpicker.min.css" />
-	<link rel="stylesheet" type="text/css" href="jquery.fonticonpicker.bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.fonticonpicker.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.fonticonpicker.bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrapValidator.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/shCore.css" />
+	<link rel="stylesheet" type="text/css" href="css/shCoreDefault.css" />
 
 	<!-- IcoMoon Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="<?php echo ICMPATH . 'style.css' ?>" />
 
+	<!-- Application Scripts -->
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/jquery.fonticonpicker.min.js"></script>
+	<script type="text/javascript" src="js/bootstrapValidator.min.js"></script>
+	<script type="text/javascript" src="js/shCore.js"></script>
+	<script type="text/javascript" src="js/brush/shBrushCss.js"></script>
+	<script type="text/javascript" src="js/brush/shBrushJScript.js"></script>
+	<script type="text/javascript" src="js/brush/shBrushPlain.js"></script>
+	<script type="text/javascript" src="js/brush/shBrushXml.js"></script>
+	<script type="text/javascript" src="js/brush/shBrushPhp.js"></script>
 
 	<script type="text/javascript">
 		jQuery(document).ready(function($) {

@@ -1,3 +1,10 @@
+/**
+ * IcoMoon Icon Indexer App
+ *
+ * Made by Swashata <swashata@intechgrity.com>
+ * @link https://github.com/swashata/IcoMoonIconIndexer
+ */
+
 #main .jumbotron {
 	margin-top: -20px;
 }
@@ -27,4 +34,32 @@
 .list-group-item.active small,
 .list-group-item.active code {
 	text-shadow: none;
+}
+
+/** Make SyntaxHighlighter play nice with bootstrap */
+.syntaxhighlighter,
+.syntaxhighlighter *,
+.syntaxhighlighter:before,
+.syntaxhighlighter:after,
+.syntaxhighlighter *:before,
+.syntaxhighlighter *:after {
+	-webkit-box-sizing: content-box;
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.syntaxhighlighter .container:before,
+.syntaxhighlighter .container:after {
+	display: none;
+}
+#options .syntaxhighlighter code,
+.syntaxhighlighter code {
+	white-space: nowrap;
+}
+body .syntaxhighlighter table,
+body .syntaxhighlighter table tbody,
+body .syntaxhighlighter table tr,
+body .syntaxhighlighter table td,
+body .syntaxhighlighter table code,
+body .syntaxhighlighter table div {
+	font-size: 16px !important;
 }
