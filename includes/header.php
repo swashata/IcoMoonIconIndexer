@@ -4,6 +4,8 @@
 <head>
 	<title>IcoMoon Fonts & Google WebFonts</title>
 
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 	<!-- Application Stylesheets -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css" />
