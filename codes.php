@@ -48,6 +48,23 @@ get_header();
 		<strong>No Indexed Icons Found</strong> It seems you haven't run an indexing on the icons yet. Please click on the Auto Generate link to get started.
 	</div>
 	<?php else : ?>
+	<h1><span class="glyphicon glyphicon-check"></span> Source Codes</h1>
+	<hr />
+	<h2><span class="glyphicon glyphicon-check"></span> PHP</h2>
+	<hr />
+	<pre class="brush: php">
+<?php echo htmlentities( file_get_contents( ABSPATH . 'iconindexed.php' ) ); ?>
+	</pre>
+	<hr />
+	<h2><span class="glyphicon glyphicon-check"></span> JSON</h2>
+	<hr />
+	<pre class="brush: js">
+<?php ob_start(); ?>
+var source = <?php echo imii_generate_fip_source_json( $icomoon_icons, 'key' ); ?>;
+var searchSource = <?php echo imii_generate_fip_search_json( $icomoon_icons ); ?>;
+var sourceClass = <?php echo imii_generate_fip_source_json( $icomoon_icons, 'class' ); ?>;
+<?php $source_json = ob_get_clean(); echo htmlentities( $source_json ); ?>
+	</pre>
 	<h1><span class="glyphicon glyphicon-check"></span> Examples and Codes</h1>
 	<hr />
 	<div class="panel panel-primary">

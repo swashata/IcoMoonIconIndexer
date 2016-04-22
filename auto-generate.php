@@ -234,10 +234,11 @@ get_header();
 							if ( isset( $icon['icon']['tags'] ) && is_array( $icon['icon']['tags'] ) && ! empty( $icon['icon']['tags'] ) ) {
 								// Loop through all icon tags set in selection.json
 								foreach ( $icon['icon']['tags'] as $tag ) {
+									$tag = trim( $tag );
 									// Loop through all tags set inside configurational categories
 									foreach ( $flattened_intl_categories as $category_id => $tags ) {
 										// Is the tag inside the tags of the category?
-										if ( in_array( $tag, $tags ) ) {
+										if ( in_array( $tag, $tags ) || preg_match( '/(\-?)' . $tag . '(\-?)/', implode( '-', $tags ) ) ) {
 											// It is, so set it and break the foreach loops
 											$selected = $category_id;
 											$msg = 'Matched from icon tags: ' . implode( ', ', $icon['icon']['tags'] );
