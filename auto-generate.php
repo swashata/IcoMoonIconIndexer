@@ -241,8 +241,18 @@ get_header();
 							$total_restored++;
 						// No? Then let's do our magic
 						} else {
+							// Check for material icons
+							// We check inside the material variable
+							foreach ( $material_icons as $micon ) {
+								if ( in_array( $icon_name, $micon['icons'] ) ) {
+									$selected = $micon['id'];
+									$msg = 'Matched from material icon: ' . $micon['label'];
+									break;
+								}
+							}
+
 							// Check for the tags directly inside
-							if ( isset( $icon['icon']['tags'] ) && is_array( $icon['icon']['tags'] ) && ! empty( $icon['icon']['tags'] ) ) {
+							if ( $selected == '' && isset( $icon['icon']['tags'] ) && is_array( $icon['icon']['tags'] ) && ! empty( $icon['icon']['tags'] ) ) {
 								// Loop through all icon tags set in selection.json
 								foreach ( $icon['icon']['tags'] as $tag ) {
 									$tag = trim( $tag );
