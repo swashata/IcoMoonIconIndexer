@@ -171,6 +171,17 @@ get_header();
 			// Icon Name (or CSS class)
 			$icon_name = $icon['properties']['name'];
 
+			// We need a fix for $icon_name because of comma separated values
+			if ( strpos( $icon_name, ',' ) !== -1 ) {
+				$icon_name_parts = explode( ',', $icon_name );
+				$icon_name = trim( $icon_name_parts[0] );
+				// And add the rest to the tags
+				if ( ! isset( $icon['icon']['tags'] ) ) {
+					$icon['icon']['tags'] = array();
+				}
+				$icon['icon']['tags'] = array_merge( $icon['icon']['tags'], array_map( 'trim', $icon_name_parts ) );
+			}
+
 			// Beautify Icon Title
 			$title = ucfirst( str_replace( array('-', '_'), array( ' ', ' ' ), $icon_name ) );
 			$title_part = array();

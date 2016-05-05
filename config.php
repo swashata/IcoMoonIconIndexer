@@ -11,7 +11,7 @@
  * This is entirely optional
  * define this to false if you do not wish to use this feature
  */
-define( 'HTML_ATTR', 'data-icomoon' );
+define( 'HTML_ATTR', 'data-ipt-icomoon' );
 
 /**
  * Icomoon style.css and selection.json path
